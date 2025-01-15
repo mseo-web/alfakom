@@ -18,12 +18,11 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">{!! $single_news->message !!}</p>
-                    <!-- <hr class="border border-primary border-2 opacity-75"> -->
                     <hr>
-                    <h5>Categories:</h5>
+                    <h5>Категории:</h5>
                     <ul>
                         @foreach ($single_news->categories as $category)
-                            <li>{{ $category->name }} (Author: {{ $category->user->name }})</li>
+                            <li>{{ $category->name }} (Автор: {{ $category->user->name }})</li>
                         @endforeach
                     </ul>
                 </div>

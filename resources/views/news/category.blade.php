@@ -12,9 +12,17 @@
                     <div class="card-header">
                         <h2><a href="{{ route('news.show', $single_news->id) }}">{{ $single_news->name }}</a></h2>
                         <p>Автор: {{ $single_news->user->name }}</p>
+                        <p>Опубликовано: {{ $single_news->event_date }}</p>
                     </div>
                     <div class="card-body">
-                        <p>{!! $single_news->message !!}</p>
+                        <p class="card-text">{!! $single_news->message !!}</p>
+                        <hr>
+                        <h5>Категории:</h5>
+                        <ul>
+                            @foreach ($single_news->categories as $category)
+                                <li>{{ $category->name }} (Автор: {{ $category->user->name }})</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             @endforeach

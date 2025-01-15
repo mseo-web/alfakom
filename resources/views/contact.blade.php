@@ -25,7 +25,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>Наш Email</h3>
-              <p>smih82177@gmail.com</p>
+              <p>mihas-ox7-74@mail.ru</p>
             </div>
           </div>
 
