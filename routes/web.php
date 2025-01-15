@@ -4,12 +4,22 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\NewsController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('/questions', function () {
+    return view('questions');
+})->name('questions');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
-Route::get('/news-categories', [NewsCategoryController::class, 'index']);
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/category/{id}', [NewsController::class, 'category'])->name('news.category');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,7 +12,7 @@ class News extends Model
         'name',
         'event_date',
         'message',
-        'created_by',
+        'user_id',
     ];
 
     public function user()
@@ -22,6 +22,6 @@ class News extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(NewsCategory::class, 'news_has_categories');
+        return $this->belongsToMany(NewsCategory::class, 'news_has_categories', 'news_id', 'news_category_id');
     }
 }

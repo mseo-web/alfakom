@@ -46,8 +46,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function news()
-    {
-        return $this->hasMany(News::class);
+    public function news() { 
+        return $this->hasMany(News::class); 
+    } 
+    
+    public function newsCategories() { 
+        return $this->hasMany(NewsCategory::class);
     }
 }

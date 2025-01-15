@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('news_has_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('news_categories')->onDelete('cascade');
-            $table->foreignId('news_id')->constrained('news')->onDelete('cascade');
-            // $table->primary(['news_id', 'category_id']);
+
+            // $table->unsignedBigInteger('news_id'); 
+            // $table->unsignedBigInteger('news_category_id'); 
+            // $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade'); $table->foreign('news_category_id')->references('id')->on('news_categories')->onDelete('cascade'); 
+            // $table->unique(['news_id', 'news_category_id']);
+
+            $table->foreignId('news_id')->constrained('news')->onDelete('cascade'); $table->foreignId('news_category_id')->constrained('news_categories')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
