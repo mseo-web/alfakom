@@ -31,7 +31,8 @@ class NewsResource extends Resource
                 Forms\Components\DateTimePicker::make('event_date')
                     ->nullable(),
                 Forms\Components\RichEditor::make('message')
-                    ->nullable(),
+                    ->nullable()
+                    ->columnSpan('full'),
                 Forms\Components\Select::make('categories')
                     ->multiple()
                     ->relationship('categories', 'name')
@@ -40,13 +41,11 @@ class NewsResource extends Resource
                 Forms\Components\Select::make('user_id') 
                     ->relationship('user', 'name') 
                     ->required(),
-                // Forms\Components\Select::make('user_id') 
-                //     ->relationship('user', 'name') 
-                //     ->required() 
-                //     ->label('User') 
-                //     ->default(auth()->user()->id) 
-                //     ->options(User::all()->pluck('name', 'id')) 
-                //     ->searchable(),
+                Forms\Components\FileUpload::make('images') 
+                    ->multiple()
+                    ->directory('images')
+                    ->image()
+                    ->maxFiles(15),
             ]);
     }
 
@@ -60,6 +59,7 @@ class NewsResource extends Resource
                 Tables\Columns\TextColumn::make('message'),
                 Tables\Columns\TextColumn::make('categories.name')->label('Categories')->sortable(),
                 Tables\Columns\TextColumn::make('user.name')->label('Author'),
+                Tables\Columns\TextColumn::make('images')->label('Images'),
             ])
             ->filters([
                 //

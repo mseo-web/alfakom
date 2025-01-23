@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->timestamp('event_date')->nullable();
             $table->mediumText('message')->nullable();
-            // $table->unsignedBigInteger('created_by');
-            // $table->foreign('created_by')->references('id')->on('users');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

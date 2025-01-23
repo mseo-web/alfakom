@@ -13,6 +13,11 @@ class News extends Model
         'event_date',
         'message',
         'user_id',
+        'images',
+    ];
+
+    protected $casts = [
+        'images' => 'array', // Если вы храните изображения в формате JSON
     ];
 
     public function user()

@@ -8,9 +8,12 @@
 
         <div class="b-example-divider"></div>
 
-        <h1>Список новостей</h1>
+        <h1 class="mt-3">Список новостей</h1>
         @foreach ($news as $single_news)
             <div class="card mb-4">
+                @if ($single_news->images)
+                <img src="{{ asset('storage/' . $single_news->images[0]) }}" class="card-img-top" alt="...">
+                @endif
                 <div class="card-header">
                     <h2><a href="{{ route('news.show', $single_news->id) }}">{{ $single_news->name }}</a></h2>
                     <p>Автор: {{ $single_news->user->name }}</p>
